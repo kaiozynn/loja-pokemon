@@ -1,0 +1,1 @@
+Compre <a href="https://kaiozynn.github.io/loja-pokemon/">aqui</a> seu pokemon
