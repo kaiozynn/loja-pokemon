@@ -112,7 +112,8 @@ main {
 .container img {
     display: block;
     margin: auto;
-    width: 440px;
+    min-width: 220px;
+    max-width: 440px;
 }
 
 .container span {
