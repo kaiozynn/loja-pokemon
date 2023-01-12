@@ -112,7 +112,6 @@ main {
 .container img {
     display: block;
     margin: auto;
-    min-width: 220px;
     max-width: 440px;
 }
 
