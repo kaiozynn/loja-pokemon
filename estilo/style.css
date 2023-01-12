@@ -91,8 +91,7 @@ main {
     position: relative;
     display: inline-block;
     background-color: white;
-    min-width: 300px;
-    max-width: 500px;
+    width: 500px;
     height: 500px;
     padding-top: 20px;
     margin: 2% 3.8% .8% 3.8%;
@@ -113,8 +112,7 @@ main {
 .container img {
     display: block;
     margin: auto;
-    min-width: 220px;
-    max-width: 440px;
+    width: 440px;
 }
 
 .container span {
