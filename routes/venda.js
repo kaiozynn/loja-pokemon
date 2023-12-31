@@ -1,9 +1,6 @@
-const express = require('express')
-const path = require('path')
-const parentFolder = path.join(__dirname, "..");
-const router = express.Router();
+const { parentFolder, router } = require('./config_routes.js')
 
-router.get('/', (req, res) => {
+router.get('/venda', (req, res) => {
   res.sendFile(parentFolder + "/public/pag-venda/venda.html")
 })
 
