@@ -14,8 +14,6 @@ app_loja_pokemon.use(express.static(style_path_loja))
 app_loja_pokemon.use(express.static(style_path_venda))
 app_loja_pokemon.use(express.urlencoded({ extended:true }))
 
-console.log(style_path_venda)
-
 module.exports = {
   app_loja_pokemon,
   parentFolder,
