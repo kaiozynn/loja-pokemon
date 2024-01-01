@@ -1,7 +1,7 @@
-const { parentFolder, router } = require('./config_routes.js')
+const { router } = require('./config_routes.js')
 
 router.get('/venda', (req, res) => {
-  res.sendFile(parentFolder + "/public/pag-venda/venda.html")
+  res.render('admin/sell.hbs')
 })
 
 module.exports = router

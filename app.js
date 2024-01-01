@@ -1,13 +1,23 @@
 //Configuração do app
-  const { json } = require('body-parser');
   const express = require('express');
+  const handlebars = require('express-handlebars');
+  const { json } = require('body-parser');
   const app_loja_pokemon = express();
   const port = 8080;
 
 //Configuração de pastas
   const path = require('path');
-  const style_path_loja = path.join(__dirname + "/public/pag-loja")
-  const style_path_venda = path.join(__dirname + "/public/pag-venda")
+  const style_path_loja = path.join(__dirname + "/public/pag-loja");
+  const style_path_venda = path.join(__dirname + "/public/pag-venda");
+
+//Configuração Handlebars
+  app_loja_pokemon.engine('.hbs', handlebars.engine(
+    { 
+      defaultLayout: 'main',
+      extname: '.hbs' 
+    }
+    ))
+  app_loja_pokemon.set('views engine', '.hbs')
 
 //Configurações da leitura de dados
   app_loja_pokemon.use(express.json());
