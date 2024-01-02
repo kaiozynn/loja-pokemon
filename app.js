@@ -31,7 +31,7 @@
   const shop = require('./routes/shop.js');
   app_loja_pokemon.use('/', shop);
 
-  const venda = require('./routes/venda.js')
+  const venda = require('./routes/sell.js')
   app_loja_pokemon.use('/venda', venda)
 //Outros
 app_loja_pokemon.listen(process.env.PORT ? Number((process.env.PORT)) : port, () => console.log('Servidor ON!!'))
