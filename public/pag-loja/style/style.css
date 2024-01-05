@@ -20,6 +20,12 @@ header {
     text-shadow: 2px 1px 15px black;
 }
 
+.carrinho {
+    font-size: 2.2em;
+    float: right;
+    margin: 2px;
+}
+
 header > h1 {
     padding-top: 40px;
     font-variant: small-caps;
@@ -81,7 +87,7 @@ nav > input:checked::before {
 
 main {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(1fr);
     justify-items: center;
     background-color: rgba(255, 255, 255, 0.41);
     margin-bottom: 40px;

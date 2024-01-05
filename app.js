@@ -23,7 +23,7 @@
   app_loja_pokemon.use(express.json());
   app_loja_pokemon.use(express.urlencoded({ extended: true }));
 
-//configuração dos arquivos státicos
+//configuração dos arquivos estáticos
   app_loja_pokemon.use(express.static(style_path_loja));
   app_loja_pokemon.use(express.static(style_path_venda));
 
@@ -33,5 +33,8 @@
 
   const venda = require('./routes/sell.js')
   app_loja_pokemon.use('/venda', venda)
+
+  const carrinho = require('./routes/carrinho.js')
+  app_loja_pokemon.use('/carrinho', carrinho)
 //Outros
 app_loja_pokemon.listen(process.env.PORT ? Number((process.env.PORT)) : port, () => console.log('Servidor ON!!'))
