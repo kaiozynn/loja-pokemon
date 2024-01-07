@@ -1,25 +1,67 @@
 <form autocomplete="off" class="container" id="form">
-    <div class="form-floating mt-3 mb-3">
-      <input type="text" name="adress" id="adress" class="form-control" placeholder="Endereço" autocomplete="off">
-      <label for="adress">Endereço</label>
-    </div>
-    <div class="row g-1 mb-3">
-      <div class="col-md-2">
-        <div class="form-floating">
-          <input type="text" name="area-code" id="area-code" class="form-control" placeholder="77">
-          <label for="area-code">Code</label>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="form-floating">
-          <input type="text" class="form-control" name="phone" id="phone" placeholder="Phone">
-          <label for="phone">Telefone</label>
-        </div>
+  <div class="row g-1 mb-3 mt-3" style="margin-top: 1px;">
+    <div class="col-md"> 
+      <div class="form-floating">
+        <input type="text" name="nome" id="nome" class="form-control" placeholder="Nome completo">
+        <label for="nome">Nome completo</label>
       </div>
     </div>
-    <div class="form-floating mb-3">
-      <input type="text" name="cpf" id="cpf" class="form-control" placeholder="CPF">
-      <label for="cpf">CPF</label>
+    <div class="col-md">
+      <div class="form-floating">
+        <input type="text" name="cep" id="cep" class="form-control isInvalid" placeholder="cep">
+        <label for="cep">CEP</label>
+      </div>
     </div>
-    <button class="btn btn-success mb-3" id="env">Enviar</button>
+  </div>
+
+  <div class="row g-1 mb-3">
+    <div class="col-md">
+      <div class="form-floating">
+        <input type="text" name="street" id="street" class="form-control" placeholder="Rua">
+        <label for="street">Rua</label>
+      </div>
+    </div>
+    <div class="col-md">
+      <div class="form-floating">
+        <input type="text" name="neighborhood" id="neighborhood" class="form-control" placeholder="77">
+        <label for="neighborhood">Bairro</label>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="form-floating">
+        <input type="text" class="form-control" name="number_house" id="number_house" placeholder="Phone">
+        <label for="number_house">Número</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="row g-1 mb-3">
+    <div class="col-md-2">
+      <div class="form-floating">
+        <input type="text" name="area-code" id="area-code" class="form-control" placeholder="77">
+        <label for="area-code">Code</label>
+      </div>
+    </div>
+    <div class="col-md">
+      <div class="form-floating">
+        <input type="text" class="form-control" name="phone" id="phone" placeholder="Phone" autocomplete="off">
+        <label for="phone">Telefone</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-floating mb-3">
+    <input type="text" name="cpf" id="cpf" class="form-control" placeholder="CPF">
+    <label for="cpf">CPF</label>
+  </div>
+  <div class="form-floating mb-3">
+    <select name="pay-form" id="pay-form" class="form-select" onchange="location.href=this.value">
+      <option selected>Escolha uma opção</option>
+      <option value="/cartao">Cartão de Crédito ou Débito</option>
+      <option value="/pix">Pix</option>
+      <option value="/boleto">Boleto</option>
+    </select>
+    <label for="pay-form">Forma de Pagamento</label>
+  </div>
+  <button class="btn btn-success mb-3" id="env">Enviar</button>
 </form>

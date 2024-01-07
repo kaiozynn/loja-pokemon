@@ -1,16 +1,15 @@
-const { router } = require('./config_routes.js')
+const { router, cep_promise } = require('./config_routes.js')
 
 router.get('/venda', (req, res) => {
   res.render('pages/sell.hbs')
 })
 
-router.post('/finalizar', (req, res) => {
-  const adress = req.body.adress
-  const cpf = req.body.cpf
+router.get('/cartao', (req, res) => {
+  res.render('pages/cartao.hbs');
+})
 
-  console.log(cpf)
-  console.log(adress)
-  res.status(200)
+router.post('/compra', (req, res) => {
+  console.log(req.body)
 })
 
 module.exports = router

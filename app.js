@@ -31,10 +31,14 @@
   const shop = require('./routes/shop.js');
   app_loja_pokemon.use('/', shop);
 
-  const venda = require('./routes/sell.js')
-  app_loja_pokemon.use('/venda', venda)
+  const venda = require('./routes/sell.js');
+  app_loja_pokemon.use('/venda', venda);
 
-  const carrinho = require('./routes/carrinho.js')
-  app_loja_pokemon.use('/carrinho', carrinho)
+  const carrinho = require('./routes/carrinho.js');
+  app_loja_pokemon.use('/carrinho', carrinho);
+
+  const cep_api = require('./routes/cep_api.js');
+  app_loja_pokemon.use('/api', cep_api);
+  
 //Outros
-app_loja_pokemon.listen(process.env.PORT ? Number((process.env.PORT)) : port, () => console.log('Servidor ON!!'))
+app_loja_pokemon.listen(process.env.PORT ? Number((process.env.PORT)) : port, () => console.log('Servidor ON!!'));
