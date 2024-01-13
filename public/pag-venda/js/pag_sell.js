@@ -18,6 +18,12 @@ const options = {
   boleto: "Boleto"
 }
 
+const formControl = document.querySelectorAll('.form-control');
+
+formControl.forEach((element) => {
+  element.style.backgroundColor = 'rgba(255, 255, 255, 0.543)';
+})
+
 //Autocompletando Formulário
 
 input_cep.addEventListener('blur', () => {
@@ -57,34 +63,49 @@ input_cep.addEventListener('blur', () => {
 
 //Envio dos dados
 
-button_env.addEventListener('click', () => {
-
+button_env.addEventListener('click', (ev) => {
+  ev.preventDefault()
 
   const dados_form = new FormData(form)
-  console.log(dados_form.get('cep'))
 
   const data = {
-    name: dados_form.get('name'),
+    name: dados_form.get('nome'),
+    cpf: dados_form.get('cpf'),
     cep: dados_form.get('cep'),
     street: dados_form.get('street'),
-    neighborhood: dados_form.get('neigborhood'),
+    neighborhood: dados_form.get('neighborhood'),
     number_house: dados_form.get('number_house'),
+    method_pay: dados_form.get('method-pay')
   }
 
-  fetch('/compra', {
-    method: 'post',
-    headers: {
-      'Content-type': 'application/json'
-    },
-    body: JSON.stringify(data)
-  })
-  .then(
-    alert('Dados enviados')
-  )
-  .catch(err => {
-    console.error('Houve um erro: ' + err)
-  })
+  if (validateForm(data)) {
+    formControl.forEach((input) => {
+      input.classList.add('is-invalid')
+    })
+  } else {
+    formControl.forEach((input) => {
+      input.classList.add('is-valid')
+    })
+    fetch('/compra', {
+      method: 'post',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+    .then(() => {
+      alert('Dados enviados')
+    }
+    )
+    .catch(err => {
+      console.error('Houve um erro: ' + err)
+    })
+  }
 })
+
+function validateForm(data) {
+  return data.nome == '' || data.cep == '' || data.street == '' || data.neighborhood == '' || data.number_house == '' || data.method_pay == '' || data.cpf == ''
+}
 
 payform.addEventListener('click', () => {
   containerPopup.style.display = 'flex'

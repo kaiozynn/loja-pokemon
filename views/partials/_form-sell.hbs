@@ -8,21 +8,21 @@
     </div>
     <div class="col-md">
       <div class="form-floating">
+        <input type="text" name="cpf" id="cpf" class="form-control" placeholder="CPF">
+        <label for="cpf">CPF</label>
+      </div>
+    </div>
+      <div class="form-floating">
         <input type="text" name="cep" id="cep" class="form-control isInvalid" placeholder="cep">
         <label for="cep">CEP</label>
       </div>
-    </div>
-    <div class="form-floating mb-3">
-      <input type="text" name="cpf" id="cpf" class="form-control" placeholder="CPF">
-      <label for="cpf">CPF</label>
-    </div>
   </div>
 
   <div class="row g-1 mb-3">
     <div class="col-md">
       <div class="form-floating">
         <input type="text" name="street" id="street" class="form-control" placeholder="Rua">
-        <label for="street">Rua</label>
+        <label for="street">Rua/Avenida</label>
       </div>
     </div>
     <div class="col-md">
@@ -33,7 +33,7 @@
     </div>
     <div class="col-md-2">
       <div class="form-floating">
-        <input type="text" class="form-control" name="number_house" id="number_house" placeholder="Phone">
+        <input type="text" class="form-control" name="number_house" id="number_house" placeholder="Número">
         <label for="number_house">Número</label>
       </div>
     </div>
@@ -43,7 +43,7 @@
     <div class="col-md-2">
       <div class="form-floating">
         <input type="text" name="area-code" id="area-code" class="form-control" placeholder="77">
-        <label for="area-code">Code</label>
+        <label for="area-code">Código de Área</label>
       </div>
     </div>
     <div class="col-md">
@@ -55,14 +55,14 @@
   </div>
 
   <div class="form-floating mb-3">
-    <input type="text" class="form-control" placeholder="Escolha a forma de pagamento" id="pay-form">
+    <input type="text" class="form-control" placeholder="Escolha a forma de pagamento" id="pay-form" name="method-pay">
     <label for="pay-form">Escolha a forma de pagamento</label>
   </div>
   <div class="form-floating mb-3">
     <a href="/cupom">
-      <div></div>
+      <div>Cupom</div>
     </a>
   </div>
-  <button class="btn btn-success mb-3" id="env">Enviar</button>
+  <button class="btn btn-success mb-3" id="env">Continuar</button>
 </form>
-{{>popup}}
+{{>_popup}}
