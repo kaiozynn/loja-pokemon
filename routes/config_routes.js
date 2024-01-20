@@ -5,7 +5,6 @@ const parentFolder = path.join(__dirname, "..");
 const router = express.Router();
 
 module.exports = {
-  parentFolder,
   router,
   cep_promise
 }

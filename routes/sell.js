@@ -1,11 +1,8 @@
-const { router, cep_promise } = require('./config_routes.js')
+const { router } = require('./config_routes.js')
 
 router.get('/venda', (req, res) => {
-  res.render('pages/sell.hbs')
-})
-
-router.get('/cartao', (req, res) => {
-  res.render('pages/cartao.hbs');
+  const image = req.query.imagem
+  res.render('pages/sell.hbs', {image})
 })
 
 router.post('/compra', (req, res) => {

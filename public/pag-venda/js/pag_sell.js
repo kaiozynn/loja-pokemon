@@ -1,38 +1,48 @@
 const input_cep = document.querySelector('#cep');
 const form = document.querySelector('#form');
 const button_env = document.querySelector('#env');
-const containerPopup = document.querySelector('.container-popup');
-const closePopup = document.querySelector('.close');
-const cartao = document.querySelector('.cred-card');
-const pix = document.querySelector('.pix');
-const boleto = document.querySelector('.boleto');
+const container_popup = document.querySelector('.container-popup');
+const close_popup = document.querySelector('.close');
+const card_options = document.querySelectorAll('.card-option')
 const popup = document.querySelector('#popup');
-const payform = document.querySelector('#pay-form');
+const pay_form = document.querySelector('#pay-form');
 const input_street = document.querySelector('#street');
-const input_number = document.querySelector('#number_house');
 const input_neighborhood = document.querySelector('#neighborhood');
+const form_control = document.querySelectorAll('.form-control');
+const input_ticket = document.querySelector('#ticket');
+const item_escolhido = document.querySelector('.img-escolhida')
 
-const options = {
-  cartao: "Cartão de Crédito",
-  pix: "Pix",
-  boleto: "Boleto"
-}
-
-const formControl = document.querySelectorAll('.form-control');
-
-formControl.forEach((element) => {
+form_control.forEach((element) => {
   element.style.backgroundColor = 'rgba(255, 255, 255, 0.543)';
 })
 
-//Autocompletando Formulário
+card_options.forEach((cards) => {
+  let value_card = cards.getElementsByTagName('p')[0];
+  console.log(value_card.innerHTML);
+
+  cards.addEventListener('click', () => {
+    container_popup.style.display = 'none'
+    payFormValue(value_card.innerHTML)
+    validBootstrapPayForm()
+  })
+})
+
+//validação do formulário
+
+form_control.forEach((input) => {
+  input.addEventListener('blur', () => {
+    if (input.value == '') {
+      input.classList.add('is-invalid')
+    } else {
+      input.classList.remove('is-invalid')
+      input.classList.add('is-valid')
+    }
+  })
+})
+
+// Autocomplete dos campos bairro e rua/avenida
 
 input_cep.addEventListener('blur', () => {
-
-  if (input_cep.value == '') {
-    input_cep.classList.add('is-invalid')
-  } else {
-    input_cep.classList.remove('is-invalid')
-
     const dado = {
       cep: Number(input_cep.value.replace('-',''))
     }
@@ -51,7 +61,6 @@ input_cep.addEventListener('blur', () => {
         } else {
           input_street.value = data.street;
           input_neighborhood.value = data.neighborhood;
-          input_number.focus();
         }
       })
     })
@@ -59,7 +68,7 @@ input_cep.addEventListener('blur', () => {
       console.error('Erro:', error);
     });
   }
-})
+)
 
 //Envio dos dados
 
@@ -67,6 +76,7 @@ button_env.addEventListener('click', (ev) => {
   ev.preventDefault()
 
   const dados_form = new FormData(form)
+  console.log(dados_form)
 
   const data = {
     name: dados_form.get('nome'),
@@ -75,17 +85,18 @@ button_env.addEventListener('click', (ev) => {
     street: dados_form.get('street'),
     neighborhood: dados_form.get('neighborhood'),
     number_house: dados_form.get('number_house'),
-    method_pay: dados_form.get('method-pay')
+    method_pay: dados_form.get('method-pay'),
+    phone: dados_form.get('phone')
   }
 
   if (validateForm(data)) {
-    formControl.forEach((input) => {
-      input.classList.add('is-invalid')
+    form_control.forEach((input) => {
+      if (input.value == '') {
+        input.classList.add('is-invalid')
+      }
     })
   } else {
-    formControl.forEach((input) => {
-      input.classList.add('is-valid')
-    })
+
     fetch('/compra', {
       method: 'post',
       headers: {
@@ -101,32 +112,35 @@ button_env.addEventListener('click', (ev) => {
       console.error('Houve um erro: ' + err)
     })
   }
+
+  form_control.forEach((input) => {
+    input.value = ''
+    input.classList.remove('is-valid')
+  })
 })
 
-function validateForm(data) {
-  return data.nome == '' || data.cep == '' || data.street == '' || data.neighborhood == '' || data.number_house == '' || data.method_pay == '' || data.cpf == ''
+function validBootstrapPayForm() {
+  pay_form.classList.remove('is-invalid')
+  pay_form.classList.add('is-valid')
 }
 
-payform.addEventListener('click', () => {
-  containerPopup.style.display = 'flex'
-  payform.value = ''
+function validateForm(data) {
+  return data.name == '' || data.cep == '' || data.street == '' || data.neighborhood == '' || data.number_house == '' || data.method_pay == '' || data.cpf == '' || data.phone == ''
+}
+
+function payFormValue(option) {
+  pay_form.value = option
+}
+
+pay_form.addEventListener('focus', () => {
+  container_popup.style.display = 'flex'
+  pay_form.value = ''
 })
 
-closePopup.addEventListener('click', () => {
-  containerPopup.style.display = 'none'
+input_ticket.addEventListener('focus', () => {
+  window.open('/cupom', '_self')
 })
 
-cartao.addEventListener('click', () => {
-  containerPopup.style.display = 'none'
-  payform.value = options.cartao
-})
-
-pix.addEventListener('click', () => {
-  containerPopup.style.display = 'none'
-  payform.value = options.pix
-})
-
-boleto.addEventListener('click', () => {
-  containerPopup.style.display = 'none'
-  payform.value = options.boleto
+close_popup.addEventListener('click', () => {
+  container_popup.style.display = 'none'
 })

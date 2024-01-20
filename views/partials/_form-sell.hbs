@@ -1,4 +1,8 @@
 <form autocomplete="off" class="container" id="form">
+  <div class="item-escolhido container mb-3">
+    <h1>Continuar compra</h1>
+    <img src="{{image}}" alt="image">
+  </div>
   <div class="row g-1 mb-3 mt-3" style="margin-top: 1px;">
     <div class="col-md"> 
       <div class="form-floating">
@@ -54,15 +58,21 @@
     </div>
   </div>
 
-  <div class="form-floating mb-3">
-    <input type="text" class="form-control" placeholder="Escolha a forma de pagamento" id="pay-form" name="method-pay">
-    <label for="pay-form">Escolha a forma de pagamento</label>
+  <div class="row g-1 mb-3">
+    <div class="col-md">
+      <div class="form-floating">
+        <input type="text" class="form-control" placeholder="Escolha a forma de pagamento" id="pay-form" name="method-pay">
+        <label for="pay-form">Escolha a forma de pagamento</label>
+      </div>
+    </div>
+    <div class="col-md">
+      <div class="form-floating mb-3">
+        <input class="form-control" name="ticket" id="ticket" placeholder="Cupom">
+        <label for="ticket">Cupom</label>
+      </div>
+    </div>
   </div>
-  <div class="form-floating mb-3">
-    <a href="/cupom">
-      <div>Cupom</div>
-    </a>
-  </div>
-  <button class="btn btn-success mb-3" id="env">Continuar</button>
+  <button class="btn btn-success" id="env">Comprar</button>
+  <a href="/" class="btn btn-secondary">Voltar</a>
 </form>
 {{>_popup}}

@@ -20,9 +20,29 @@ header {
 }
 
 .carrinho {
-  font-size: 2.2em;
-  float: right;
+  position: relative;
+  font-size: 3em;
   margin: 2px;
+}
+
+.cont-item {
+  position: absolute;
+  text-align: center;
+  margin-top: 1px;
+  right: -5px;
+  width: 30px;
+  height: 20px;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: bolder;
+  font-family: 'Courier New', Courier, monospace;
+  color: white;
+  background-color: rgb(255, 40, 40);
+  border-radius: 20%;
+}
+
+.displayNone {
+  display: none;
 }
 
 header > h1 {
@@ -40,10 +60,9 @@ header > nav {
   padding-top: 20px;
   padding-bottom: 20px;
   margin: 10px;
-
 }
 
-header > nav > a{
+header > nav > a {
   font-size: 1.4em;
   padding-left: 10px;
   text-decoration: none;
@@ -86,7 +105,7 @@ nav > input:checked::before {
 
 main {
   display: grid;
-  grid-template-columns: repeat(1fr);
+  grid-template-columns: repeat(2, 1fr);
   justify-items: center;
   background-color: rgba(255, 255, 255, 0.41);
   margin-bottom: 40px;
@@ -95,10 +114,10 @@ main {
 
 .container {
   position: relative;
-  width: 85%;
-  height: 85%;
-  padding: 20px;
+  width: 90%;
+  height: 45vh;
   margin: 20px 0;
+  padding: 5px;
   text-align: center;
   background-color: lightgray;
   border-radius: 20px;
@@ -108,6 +127,7 @@ main {
 .container h1 {
   text-align: center;
   margin: 0;
+  font-size: 1.2em;
   margin-bottom: 10px;
   font-variant: small-caps;
   cursor: pointer;
@@ -116,7 +136,7 @@ main {
 .container img {
   display: block;
   margin: auto;
-  width: 100%;
+  width: 90%;
 }
 
 .container span {
@@ -124,17 +144,11 @@ main {
   justify-content: center;
   flex-wrap: wrap;
   padding-top: 20px;
-  font-size: 1.8em;
-}
-
-.container span::after {
-  content: ' \00a0 em até 12x no cartão';
+  font-size: 1.4em;
 }
 
 .compra {
-  display: flex;
   margin: auto;
-  margin-top: 5.5%;
   cursor: pointer;
   justify-content: center;
   align-items: center;
@@ -151,6 +165,10 @@ main {
 
 .compra:hover {
   background-image: linear-gradient(to bottom, rgb(255, 255, 86), rgb(255, 182, 46));
+}
+
+.add-carrinho {
+  float: right;
 }
 
 footer {

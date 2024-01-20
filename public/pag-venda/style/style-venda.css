@@ -7,6 +7,16 @@ body {
   width: 70%;
 }
 
+.item-escolhido{
+  display: flex;
+  position: relative;
+  padding: 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
 #form {
   background-color: transparent;
   padding-top: 1px;

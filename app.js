@@ -11,12 +11,7 @@
   const style_path_venda = path.join(__dirname + "/public/pag-venda");
 
 //Configuração Handlebars
-  app_loja_pokemon.engine('.hbs', handlebars.engine(
-    { 
-      defaultLayout: 'main',
-      extname: '.hbs' 
-    }
-    ))
+  app_loja_pokemon.engine('.hbs', handlebars.engine({ defaultLayout: 'main',extname: '.hbs' }))
   app_loja_pokemon.set('views engine', '.hbs')
 
 //Configurações da leitura de dados
