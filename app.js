@@ -9,10 +9,11 @@
   const path = require('path');
   const style_path_loja = path.join(__dirname + "/public/pag-loja");
   const style_path_venda = path.join(__dirname + "/public/pag-venda");
+  const stylle_path_carrinho = path.join(__dirname + "/public/pag-carrinho");
 
 //Configuração Handlebars
-  app_loja_pokemon.engine('.hbs', handlebars.engine({ defaultLayout: 'main',extname: '.hbs' }))
-  app_loja_pokemon.set('views engine', '.hbs')
+  app_loja_pokemon.engine('.hbs', handlebars.engine({ defaultLayout: 'main',extname: '.hbs' }));
+  app_loja_pokemon.set('views engine', '.hbs');
 
 //Configurações da leitura de dados
   app_loja_pokemon.use(express.json());
@@ -21,6 +22,7 @@
 //configuração dos arquivos estáticos
   app_loja_pokemon.use(express.static(style_path_loja));
   app_loja_pokemon.use(express.static(style_path_venda));
+  app_loja_pokemon.use(express.static(stylle_path_carrinho));
 
 //Configuração das rotas
   const shop = require('./routes/shop.js');

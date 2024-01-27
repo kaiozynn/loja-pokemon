@@ -1,8 +1,15 @@
-<div>
-  <p>
-    Carrinho de compras
-  </p>
-  <a href="/">
-    Voltar
-  </a>
-</div>
+<link rel="stylesheet" href="./style/cart.css">
+
+{{#if cart_itens}}
+{{#each cart_itens}}
+  <img src="{{this}}" alt="imagem" class="cart-itens" style="display: none;">
+{{/each}}
+{{#each name_itens}}
+  <div class="item-name" style="display: none;">{{this}}</div>
+{{/each}}
+{{>_itens-cart}}
+
+{{else}}
+<p>Test</p>
+{{/if}}
+<script src="./js/tes.js"></script>

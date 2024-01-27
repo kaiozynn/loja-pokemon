@@ -18,7 +18,7 @@ form_control.forEach((element) => {
 
 card_options.forEach((cards) => {
   let value_card = cards.getElementsByTagName('p')[0];
-  console.log(value_card.innerHTML);
+  value_card.innerHTML;
 
   cards.addEventListener('click', () => {
     container_popup.style.display = 'none'
@@ -76,8 +76,7 @@ button_env.addEventListener('click', (ev) => {
   ev.preventDefault()
 
   const dados_form = new FormData(form)
-  console.log(dados_form)
-
+  
   const data = {
     name: dados_form.get('nome'),
     cpf: dados_form.get('cpf'),

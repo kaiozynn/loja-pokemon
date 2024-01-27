@@ -1,0 +1,20 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: brown;
+}
+
+.container-cart-itens {
+  width: 60%;
+  height: 80%;
+  background-color: white;
+}
