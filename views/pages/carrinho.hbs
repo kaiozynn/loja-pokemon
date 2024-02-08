@@ -1,15 +1,39 @@
 <link rel="stylesheet" href="./style/cart.css">
 
-{{#if cart_itens}}
-{{#each cart_itens}}
-  <img src="{{this}}" alt="imagem" class="cart-itens" style="display: none;">
-{{/each}}
-{{#each name_itens}}
-  <div class="item-name" style="display: none;">{{this}}</div>
-{{/each}}
-{{>_itens-cart}}
+<div class="container-cart-itens">
+  {{#if dados}}
+    {{#each dados.item}}
+      <div class="item-card">
+        <div class="item-img">
+          <img src="{{this}}" alt="imagem" class="img">
+        </div>
+        <div class="info-item">
+          <h3 class="title-item">
+          {{#if (lookup ../dados.title @index)}}
+            {{lookup ../dados.title @index}}
+          {{/if}}
+          </h3>
+          <div class="quant-item">
+            <input type="button" value="-" class="min">
+            <input type="number" name="" id="" class="quant" value="{{#if (lookup ../dados.quantidade @index)}}{{lookup ../dados.quantidade @index}}{{/if}}">
+            <input type="button" value="+" class="plus">
+          </div>
+          <div class="extra">
+            <div>value item</div>
+            <button class="delete">
+              <i class="material-symbols-outlined">delete_forever</i>
+            </button>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  {{/if}}
+  <div class="total">
+    <div style="position: fixed; background-color: aquamarine;">
+      <div style="background-color: bisque;">ola</div>
+    </div>
+  </div>
+  <a href="/">Continuar comprando</a>
+</div>
 
-{{else}}
-<p>Test</p>
-{{/if}}
 <script src="./js/tes.js"></script>

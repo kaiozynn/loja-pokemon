@@ -33,7 +33,7 @@ container.forEach((item, index) => {
     const name_item = item.getElementsByTagName('h1')[0].innerHTML
 
     arrayImgs.push(item.dataset.srcImg = src_img);
-    name_itens.push(name_item)
+    name_itens.push(name_item.toUpperCase())
 
     contagem++
     cont_item.classList.remove('displayNone')
