@@ -3,6 +3,8 @@
   const handlebars = require('express-handlebars');
   const { json } = require('body-parser');
   const app_loja_pokemon = express();
+  const react = require('react');
+  const reactDOM = require('react-dom');
   const port = 8080;
 
 //Configuração de pastas
@@ -25,16 +27,16 @@
   app_loja_pokemon.use(express.static(stylle_path_carrinho));
 
 //Configuração das rotas
-  const shop = require('./routes/shop.js');
+  const shop = require('./src/routes/shop.js');
   app_loja_pokemon.use('/', shop);
 
-  const venda = require('./routes/sell.js');
+  const venda = require('./src/routes/sell.js');
   app_loja_pokemon.use('/venda', venda);
 
-  const carrinho = require('./routes/carrinho.js');
+  const carrinho = require('./src/routes/carrinho.js');
   app_loja_pokemon.use('/carrinho', carrinho);
 
-  const cep_api = require('./routes/cep_api.js');
+  const cep_api = require('./src/routes/cep_api.js');
   app_loja_pokemon.use('/api', cep_api);
   
 //Outros

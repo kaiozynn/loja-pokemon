@@ -7,7 +7,7 @@ let quantidade = [];
 router.get('/carrinho', (req, res) => {
 
   //Envio dos dados em de array para o arquivo HBS 
-
+  
   res.render('pages/carrinho.hbs', {
     dados: {
         item, 
