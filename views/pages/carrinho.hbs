@@ -1,17 +1,11 @@
 <link rel="stylesheet" href="./style/cart.css">
-<div id="root"></div>
 <div class="container-cart-itens">
-  {{#if dados}}
-    {{#each dados.item}}
       <div class="item-card">
         <div class="item-img">
           <img src="{{this}}" alt="imagem" class="img">
         </div>
         <div class="info-item">
           <h3 class="title-item">
-          {{#if (lookup ../dados.title @index)}}
-            {{lookup ../dados.title @index}}
-          {{/if}}
           </h3>
           <div class="quant-item">
             <input type="button" value="-" class="min">
@@ -26,8 +20,6 @@
           </div>
         </div>
       </div>
-    {{/each}}
-  {{/if}}
   <div class="total">
     <div style="position: fixed; background-color: aquamarine;">
       <div style="background-color: bisque;">ola</div>
@@ -35,6 +27,3 @@
   </div>
   <a href="/">Continuar comprando</a>
 </div>
-
-<script src="./js/tes.js"></script>
-<script src="./react.jsx"></script>

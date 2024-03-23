@@ -1,10 +1,7 @@
 //Configuração do app
   const express = require('express');
   const handlebars = require('express-handlebars');
-  const { json } = require('body-parser');
   const app_loja_pokemon = express();
-  const react = require('react');
-  const reactDOM = require('react-dom');
   const port = 8080;
 
 //Configuração de pastas
